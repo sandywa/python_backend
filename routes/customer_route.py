@@ -2,7 +2,10 @@
 
 from fastapi import APIRouter, HTTPException
 from models.customer import CustomerRegistrationRequest, CustomerRegistrationResponse
+from models.account import AccountCustomer
 from function.json_handler import read_customer_data, save_customer_data
+
+from function.token_handler import create_access_token
 
 router = APIRouter()
 
@@ -30,3 +33,19 @@ def daftar(nasabah: CustomerRegistrationRequest):
 # Fungsi untuk menghasilkan nomor rekening baru (contoh sederhana)
 def generate_new_account_number():
     return str(len(registered_customers) + 1)
+
+
+# Simulasikan data pengguna (dapat diganti dengan akun didalam database)
+fake_user = {"username": "admin", "password": "admin123"}
+
+@router.post("/token")
+async def login_for_access_token(data:AccountCustomer):
+    # Ini adalah contoh autentikasi sederhana.
+    # Anda dapat menggantinya dengan metode otentikasi yang sesuai.
+
+    # Contoh validasi sederhana (pengguna dan kata sandi cocok)
+    if data.username == fake_user["username"] and data.password == fake_user["password"]:
+        access_token = create_access_token(data={"sub": data.username})
+        return {"access_token": access_token, "token_type": "bearer"}
+
+    raise HTTPException(status_code=401, detail="Unauthorized")
