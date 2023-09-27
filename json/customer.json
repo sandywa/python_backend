@@ -1,0 +1,38 @@
+[
+    {
+        "nama": "John Doe",
+        "nik": "1234567890",
+        "no_hp": "081234567890",
+        "no_rekening": "1"
+    },
+    {
+        "nama": "John Cena",
+        "nik": "000999",
+        "no_hp": "008899",
+        "no_rekening": "2",
+        "saldo": 99800,
+        "transaksi": [
+            {
+                "waktu": "2023-09-27T10:54:35.459632",
+                "kode_transaksi": "C",
+                "nominal": 100000
+            },
+            {
+                "waktu": "2023-09-27T11:44:16.481577",
+                "kode_transaksi": "D",
+                "nominal": 100
+            },
+            {
+                "waktu": "2023-09-27T11:44:28.026339",
+                "kode_transaksi": "D",
+                "nominal": 100
+            }
+        ]
+    },
+    {
+        "nama": "Bakul Cena",
+        "nik": "1111111122222222",
+        "no_hp": "08121212121212",
+        "no_rekening": "3"
+    }
+]
